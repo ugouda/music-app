@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background: #1c1c1c;
+    /* background:  linear-gradient(135deg, black, blue, green, red); */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: grid;
+    place-items: center;
+    /* transition: all 2s ease-in; */
+}
+.container {
+    width: 50vw;
+    background: #ebebeb10;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    transition: all 3s;
+    /* justify-content: center; */
+    /* justify-content: center; */
+}
+.container img {
+    border-radius: 7px;
+    width: 30%;
+    margin-right: 2rem;
+}
+#title {
+    margin-bottom: .5rem;
+}
+#artists {
+    opacity: .6;
+}
+button{
+    font-family: inherit;
+}
+.controls {
+    margin-top: 1rem;
+}
+.controls .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem;
+}
+.contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.controls .btns button {
+    background: rgba(255, 255, 255, 0.100);
+    padding: .3rem .4rem;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    transition: all .5s;
+}
+.controls .btns button:hover {
+    background: rgba(255, 255, 255, 0.200);
+}
+.controls .btns button:hover i {
+    color: #1ed760;
+}
+.controls .btns button i {
+    color: white;
+    transition: all .5s;
+}
+.controls .btns button:nth-child(2){
+    scale: 1.2;
+}
+#range {
+    flex: 1;
+    height: 5px;
+    accent-color: #1ed760;
+    border: none;
+}
+#range::-webkit-slider-thumb {
+    cursor: pointer;
+}
+.line {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+.line .bg {
+    flex: 1;
+    height: 3px;
+    border-radius: 5px;
+    background: white;
+    overflow: hidden;
+}
+#live {
+    height: 100%;
+    width: 30%;
+    border-radius: 5px;
+    background: #1ed760;
+}
+
+@media only screen and (max-width: 1080px) {
+    .container {
+        width: 80vw;
+    }
+}
+@media only screen and (max-width: 660px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

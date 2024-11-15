@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <img crossorigin="anonymous" id="img" src="/images/big/ab67616d00001e0285efa87a5eafe030b2495b7e.jpg"
+            alt="image">
+        <div class="contents">
+            <div class="titleNname">
+                <h1 id="title"></h1>
+                <span id="artists"></span>
+            </div>
+            <div class="controls">
+                <div class="btns">
+                    <button class="btn-1" id="prev"><i class="ph-bold ph-skip-back"></i></button>
+                    <button class="btn-2" id="pp"><i class="ph-bold ph-play"></i></button>
+                    <button class="btn-3" id="next"><i class="ph-bold ph-skip-forward"></i></button>
+                </div>
+                <div class="line">
+                    <span id="currentTime">0:00</span>
+                    <input type="range" id="range" value="0" min="0" max="100" step="1">
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+<script src="./js/controls.js"></script>
+
+<script src="./js/script.js"></script>
+<script>
+    const image = document.getElementById('img');
+    const colorThief = new ColorThief();
+
+
+// (3) [50, 54, 40]
+// (3) [222, 202, 174]
+// (3) [150, 118, 83]
+// (3) [170, 169, 147] 
+// (3) [134, 148, 156]
+image.onload = () => {
+    const colorThief = new ColorThief();
+    const container = document.getElementById('container');
+
+    // Extract the dominant color and the palette
+    const palette = colorThief.getPalette(image, 3);
+    console.log('Color Palette:', palette);
+
+    // Convert the palette colors to RGBA format with 50% opacity
+    const color1 = `rgba(${palette[0][0]}, ${palette[0][1]}, ${palette[0][2]}, 0.3)`;
+    const color2 = `rgba(${palette[1][0]}, ${palette[1][1]}, ${palette[1][2]}, 0.3)`;
+    const color3 = `rgba(${palette[2][0]}, ${palette[2][1]}, ${palette[2][2]}, 0.3)`;
+
+    // Select the container and set up a smooth transition
+    container.style.transition = 'background 5s ease-in-out'; // Smooth transition for the background
+
+    // Update the background with a new linear gradient
+    requestAnimationFrame(() => {
+        container.style.background = `linear-gradient(315deg, ${color1}, ${color2}, ${color3})`;
+    });
+};
+
+
+</script>
+
+</html>
