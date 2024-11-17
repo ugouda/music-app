@@ -112,4 +112,15 @@ button{
         flex-direction: column;
         align-items: center;
     }
+    #img {
+        width: 100%;
+        margin: 0 auto 1rem 0;
+    }
+    #title {
+        font-size: 1.7rem;
+    }
+}
+#buffer {
+    scale: .7;
+    mix-blend-mode: color-burn;
 }

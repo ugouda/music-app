@@ -58,19 +58,18 @@ const formattedTime = (time) => {
 
 // Update UI with Song Details
 const updateUI = () => {
-    console.log(currentSong)
     title.textContent = songs[currentIndex].title;
     artists.textContent = songs[currentIndex].artists;
     img.src = songs[currentIndex].img;
-    duration.textContent = '0:00';
+    duration.innerHTML = '<i class="ph ph-spinner-gap"></i>';
     currentTimeElement.textContent = '0:00';
     progressBar.value = 0;
 };
 
 // Load Song and Metadata
 const loadSong = () => {
-    currentSong.src = songs[currentIndex].src; // **Change 1:** Updated to explicitly set `src` each time.
-    currentSong.load(); // **Change 2:** Ensures the song is properly loaded before playing.
+    currentSong.src = songs[currentIndex].src; // Updated to explicitly set `src` each time.
+    currentSong.load(); // Ensures the song is properly loaded before playing.
     updateUI();
 
     currentSong.addEventListener('loadedmetadata', () => {
@@ -92,7 +91,7 @@ const loadSong = () => {
 const togglePlayPause = () => {
     const icon = ppButton.firstElementChild;
     if (currentSong.paused) {
-        currentSong.play(); // **Change 3:** Ensures the song plays when toggled.
+        currentSong.play(); // Ensures the song plays when toggled.
         icon.setAttribute('class', 'ph-bold ph-pause');
     } else {
         currentSong.pause();
@@ -105,15 +104,15 @@ const changeSong = (direction) => {
     currentSong.pause();
     currentSong.currentTime = 0;
 
-    // **Change 4:** Updated index management to prevent out-of-bounds errors.
+    // Updated index management to prevent out-of-bounds errors.
     if (direction === 'next') {
         currentIndex = (currentIndex + 1) % songs.length;
     } else if (direction === 'prev') {
         currentIndex = (currentIndex - 1 + songs.length) % songs.length;
     }
 
-    loadSong(); // **Change 5:** Load the new song and update the UI.
-    currentSong.play(); // **Change 6:** Explicitly play the song after loading.
+    loadSong(); // Load the new song and update the UI.
+    currentSong.play(); // Explicitly play the song after loading.
     ppButton.firstElementChild.setAttribute('class', 'ph-bold ph-pause');
 };
 
@@ -123,8 +122,8 @@ nextButton.addEventListener('click', () => changeSong('next'));
 prevButton.addEventListener('click', () => changeSong('prev'));
 
 progressBar.addEventListener('input', () => {
-    currentSong.currentTime = progressBar.value; // **Change 7:** Allows user to seek within the song.
+    currentSong.currentTime = progressBar.value; // Allows user to seek within the song.
 });
 
 // Initial Setup
-loadSong(); // **Change 8:** Initialize the first song and update UI.
+loadSong(); // Initialize the first song and update UI.
