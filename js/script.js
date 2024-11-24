@@ -49,9 +49,6 @@ let progressBar = document.getElementById('range');
 let currentIndex = 0;
 let currentSong = new Audio(songs[currentIndex].src);
 
-// setting width of btn same as height
-let playlistBtn = document.getElementById('playlist-btn');
-playlistBtn.style.width = `${playlistBtn.offsetHeight}px`
 
 // Utility Functions
 const formattedTime = (time) => {

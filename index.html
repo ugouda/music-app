@@ -28,7 +28,6 @@
                     <span id="currentTime">0:00</span>
                     <input type="range" id="range" value="0" min="0" max="100" step="1">
                     <span id="duration"><i class="ph ph-spinner-gap" id="buffer"></i></span>
-                    <button id="playlist-btn">| |</button>
                 </div>
             </div>
         </div>
@@ -64,8 +63,6 @@
         
         // Update the background with a new linear gradient
         requestAnimationFrame(() => {
-            // Select the container and set up a smooth transition
-            container.style.transition = 'all 5s ease-in-out'; // Smooth transition for the background
             container.style.background = `linear-gradient(315deg, ${color1}, ${color2}, ${color3})`;
         });
     };

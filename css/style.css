@@ -19,7 +19,7 @@ body {
     padding: 2rem;
     border-radius: 10px;
     display: flex;
-    transition: background 3s;
+    transition: all .5s;
     /* justify-content: center; */
     /* justify-content: center; */
 }
