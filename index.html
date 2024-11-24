@@ -27,7 +27,8 @@
                 <div class="line">
                     <span id="currentTime">0:00</span>
                     <input type="range" id="range" value="0" min="0" max="100" step="1">
-                    <span id="duration"><i class="ph ph-spinner-gap"></i></span>
+                    <span id="duration"><i class="ph ph-spinner-gap" id="buffer"></i></span>
+                    <button id="playlist-btn">| |</button>
                 </div>
             </div>
         </div>
@@ -42,32 +43,32 @@
     const colorThief = new ColorThief();
 
 
-// (3) [50, 54, 40]
-// (3) [222, 202, 174]
-// (3) [150, 118, 83]
-// (3) [170, 169, 147] 
-// (3) [134, 148, 156]
-image.onload = () => {
-    const colorThief = new ColorThief();
-    const container = document.getElementById('container');
+    // (3) [50, 54, 40]
+    // (3) [222, 202, 174]
+    // (3) [150, 118, 83]
+    // (3) [170, 169, 147] 
+    // (3) [134, 148, 156]
+    image.onload = () => {
+        const colorThief = new ColorThief();
+        const container = document.getElementById('container');
 
-    // Extract the dominant color and the palette
-    const palette = colorThief.getPalette(image, 3);
-    console.log('Color Palette:', palette);
+        // Extract the dominant color and the palette
+        const palette = colorThief.getPalette(image, 3);
+        console.log('Color Palette:', palette);
 
-    // Convert the palette colors to RGBA format with 50% opacity
-    const color1 = `rgba(${palette[0][0]}, ${palette[0][1]}, ${palette[0][2]}, 0.3)`;
-    const color2 = `rgba(${palette[1][0]}, ${palette[1][1]}, ${palette[1][2]}, 0.3)`;
-    const color3 = `rgba(${palette[2][0]}, ${palette[2][1]}, ${palette[2][2]}, 0.3)`;
+        // Convert the palette colors to RGBA format with 50% opacity
+        const color1 = `rgba(${palette[0][0]}, ${palette[0][1]}, ${palette[0][2]}, 0.3)`;
+        const color2 = `rgba(${palette[1][0]}, ${palette[1][1]}, ${palette[1][2]}, 0.3)`;
+        const color3 = `rgba(${palette[2][0]}, ${palette[2][1]}, ${palette[2][2]}, 0.3)`;
 
-    // Select the container and set up a smooth transition
-    container.style.transition = 'background 5s ease-in-out'; // Smooth transition for the background
-
-    // Update the background with a new linear gradient
-    requestAnimationFrame(() => {
-        container.style.background = `linear-gradient(315deg, ${color1}, ${color2}, ${color3})`;
-    });
-};
+        
+        // Update the background with a new linear gradient
+        requestAnimationFrame(() => {
+            // Select the container and set up a smooth transition
+            container.style.transition = 'all 5s ease-in-out'; // Smooth transition for the background
+            container.style.background = `linear-gradient(315deg, ${color1}, ${color2}, ${color3})`;
+        });
+    };
 
 
 </script>

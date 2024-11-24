@@ -25,11 +25,11 @@ const songs = [
         title: 'One Of The Girl',
         artists: 'The Weeknd, JENNIE, Lily-Rose Depp',
         img: './images/big/ab67616d00001e02b0dd6a5cd1dec96c4119c262.jpg'
-    }, 
+    },
     {
-        src: "./musics/anuv-jain-jo-tum-mere-ho-official-video-128-ytshorts.savetube.me.mp3", 
-        title: 'Jo Tum Mere Ho', 
-        artists: 'Anuv Jain', 
+        src: "./musics/anuv-jain-jo-tum-mere-ho-official-video-128-ytshorts.savetube.me.mp3",
+        title: 'Jo Tum Mere Ho',
+        artists: 'Anuv Jain',
         img: './images/big/ab67616d00001e0272a77d038887cdc425f5ee55.jpeg'
     }
 ];
@@ -48,6 +48,10 @@ let progressBar = document.getElementById('range');
 // State Variables
 let currentIndex = 0;
 let currentSong = new Audio(songs[currentIndex].src);
+
+// setting width of btn same as height
+let playlistBtn = document.getElementById('playlist-btn');
+playlistBtn.style.width = `${playlistBtn.offsetHeight}px`
 
 // Utility Functions
 const formattedTime = (time) => {

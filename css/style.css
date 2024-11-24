@@ -19,7 +19,7 @@ body {
     padding: 2rem;
     border-radius: 10px;
     display: flex;
-    transition: all 3s;
+    transition: background 3s;
     /* justify-content: center; */
     /* justify-content: center; */
 }
@@ -123,4 +123,19 @@ button{
 #buffer {
     scale: .7;
     mix-blend-mode: color-burn;
+}
+
+#playlist-btn {
+    padding: .3rem;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: .3rem;
+    transition: all .5s ease;
+}
+#playlist-btn:hover {
+    background: rgba(255, 255, 255, 0.075);
+
 }
